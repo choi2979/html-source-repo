@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="http://code.jquery.com/jquery-3.4.1.js"></script>
+</head>
+<body>
+	<div id="d_map" style="width:800px; height:600px;"></div>
+	<script type="text/javascript">
+		var map = new google.maps.Map(document.getElementById('d_map'),{
+			zoom: 15
+			,center: new google.maps.LatLng(37.478513, 126.877800)
+			,mapTypeId: google.maps.MapTypeId.ROADMAP
+		});
+		$.ajax({
+			url: 'jsonMapList.jsp'
+			,dataType: 'json'
+			,success:function(data){
+				$("#d_map").text(data);
+			}
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Date객체 - 날짜와 시간을 다루는 객체이다.</title>
+<script type="text/javascript">
+	function showtime(){
+		var today = new Date();
+		alert(today.toLocaleString());
+		var year = today.getYear();
+		var month = today.getMonth()+1;
+		var day = today.getDay();
+		//alert(year+", "+month+", "+day);
+		var temp = today.toLocaleString();
+		window.status = temp;/* ?????????????????????????????????? */
+		document.getElementById("d_msg").innerText = temp;
+		return temp;
+	}
+</script>
+</head>
+<!-- <body onLoad="showtime()"> -->
+<body>
+	<div id="d_msg"></div>
+<script type="text/javascript">
+	var temp = showtime();
+	alert(temp);
+	location.href="a.html?time="+new Date().getTime();
+</script>
+</body>
+</html>

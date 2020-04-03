@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>변수의 초기화</title>
+<script type="text/javascript">
+/*자바와는 다르게 컴파일 하지 않으니까 문법체크(타입 체크)를 하지 않음.*/
+	var num = 5;//전역변수
+	var isOK = false;
+	var insa = "좋은 아침";
+	var temp = null;
+	function test(){
+		var num = 7;
+		alert("num:"+num);
+		alert("num:"+this.num);
+	}
+</script>
+</head>
+<body>
+	<script type="text/javascript">
+		alert("num:"+num);
+		test();
+	</script>
+<!-- 
+	데이터 타입
+	1)숫자 : 정수와 실수
+	2)논리 : false, true
+	3)문자열 : "좋은 아침"
+	4)null : 특수 키워드
+	
+	변수
+	:프로그램에서 필요한 data의 저장공간으로 항상 변하는 값을 기억
+	:숫자로 시작하면 안됨.
+	:대소문자 구분
+	
+ -->
+</body>
+</html>

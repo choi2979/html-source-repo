@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCj-N00fQjAzawj8pkzu0M7iLv8R4q5_Ko"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-3.4.1.js"></script>
+</head>
+<body>
+	<div id="d_map" style="width:800px; height:600px;"></div>
+	<script type="text/javascript">
+		var map = new google.maps.Map(document.getElementById('d_map'),{
+			zoom: 14
+			,center: new google.maps.LatLng(37.478513, 126.877800)
+			,mapTypeId: google.maps.MapTypeId.ROADMAP
+		});
+		var infowindow = new google.maps.InfoWindow();
+		var marker;
+		var i;//marker생성시 부여한 인덱스 값
+		$.ajax({
+			url: 'jsonMapList.jsp'
+			,dataType: 'json'
+			,success:function(data){
+				//$("#d_map").text(data);
+				var result = JSON.stringify(data);
+				//$("#d_map").text(result);
+				var jsonDoc = JSON.parse(result);
+				for(var i=0;i<jsonDoc.length;i++){
+					//alert(jsonDoc[i].res_name);
+					marker = new google.maps.Marker({
+						id: i
+						,position: new google.maps.LatLng(jsonDoc[i].lat,jsonDoc[i].lng)
+						,map: map
+						,title: jsonDoc[i].res_name
+					});
+					google.maps.event.addListener(marker, 'click',(function(marker,i){
+						return function(){
+							infowindow.setContent('<b>'+jsonDoc[i].res_name+'</b>');
+							infowindow.open(map,marker);
+						}
+					})(marker,i));
+					if(marker){
+						marker.addListener('click',function(){
+							map.setZoom(15);
+							map.setCenter(this.getPosition());
+						});
+					}
+						
+				}
+				
+			}
+		});
+	</script>
+</body>
+</html>

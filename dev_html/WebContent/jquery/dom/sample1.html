@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>ready demo</title>
+<style type="text/css">
+	p {
+		color:red;
+	}
+	div {
+		color:blue;
+	}
+	#d_test {
+		color:pink;
+	}
+	#d_test > h1 {
+		color: yellow;
+	}
+	.c_test {
+		color: brown;
+	}
+	.c_test > h1 {
+		color: black;
+	}
+</style>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$(	"p"	).text( "The DOM is new loaded and cand be manipulated.");
+	});
+</script>
+</head>
+<body>
+<div>Not loaded yet.</div>
+<div id="d_test"><h1>Not loaded yet.</h1></div>
+<div class="c_test"><h1>Not loaded yet.</h1></div>
+</body>
+</html>

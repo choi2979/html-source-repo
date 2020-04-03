@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>onload이벤트 활용</title>
+</head>
+<body>
+<!-- 
+	dom먼저? 아님 event처리가 먼저?
+ -->
+ <script type="text/javascript">
+ 	var be = document.getElementById("header");
+ 	alert("before==>"+be);//null
+ </script>
+	<h1 id="header">Click</h1>
+ <script type="text/javascript">
+ 	var af = document.getElementById("header");
+ 	alert("after==>"+af);//HTML Object
+ </script>
+</body>
+</html>

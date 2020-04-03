@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+	<style type="text/css">
+		div#d_result {
+			position : absolute;
+		}
+		.ListIn {
+			background : #CCFFFF;
+		}
+		.ListOut {
+			background : #FFFFFF;
+		}
+	</style>
+	<script type="text/javascript">
+		var word = $("#keyword");
+		function showMethod(){
+			$.ajax({
+				method:"get"
+				,url:"http://localhost:8000/json/dept.json"
+				,dataType:"json"
+				,success:function(data){
+					alert("data:"+data);
+					var result = JSON.stringify(data);//구조체 보여줌
+					alert("result:"+result);
+					var jsonDoc = JSON.parse(result);
+					//alert("jsonDoc:"+jsonDoc[2].loc);
+					for(var i=0;i<jsonDoc.length;i++){
+						$("#d_result").text(jsonDoc[i].deptno+", "+jsonDoc[i].dname+", "+jsonDoc[i].loc);
+					}
+				}
+				,fail:function(xhrObject, txtStatus){
+					alert(txtStatus+", "+xhrObject.responseText);
+				}
+			});
+			//alert( "left: " + offset.left + ", top: " + offset.top );
+			//$("#d_result").html("");
+			//position : absolute 해야만 좌표값으로 위치를 바꿀 수 있다.
+		}
+		function clearMethod(){
+			$("#d_result").css("backgroundColor","#FFFFFF");
+			$("#d_result").css("border","none");
+			$("#d_result").html("");
+		}
+	</script>
+</head>
+<body>
+<script type="text/javascript">
+	$(document).ready(function(){
+		//$("#d_result").hide();
+	});
+</script>
+	<input type="text" id="keyword" name ="keyword" size="20" onkeyup="showMethod()">
+	<div id="d_result"></div>
+	<button onclick="showMethod()">보여줘</button>
+	<button onclick="clearMethod()">지워줘</button>
+</body>
+</html>

@@ -1,0 +1,32 @@
+[
+	{
+	lng: 126.881048,
+	res_photo: "choishef2.jpg",
+	res_name: "최쉡2",
+	lat: 37.480112
+	},
+	{
+	lng: 126.882336,
+	res_photo: "newtown.jpg",
+	res_name: "새마을식당 가산점",
+	lat: 37.480353
+	},
+	{
+	lng: 126.885991,
+	res_photo: "susi.jpg",
+	res_name: "하나스시(가산점)",
+	lat: 37.480533
+	},
+	{
+	lng: 126.886973,
+	res_photo: "chingtien.jpg",
+	res_name: "칭티엔",
+	lat: 37.480017
+	},
+	{
+	lng: 126.866169,
+	res_photo: "wang.jpg",
+	res_name: "본전소왕갈비",
+	lat: 37.486284
+	}
+]

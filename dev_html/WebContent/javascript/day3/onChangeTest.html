@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<!-- 
+html -> javascript
+
+javascript -> jquery, vue, react......표준은 아니다.
+만일 저 중에 지원을 안하는 부분이 있을 때, 버그가 있는 경우에는 표준이 답이다.
+ -->
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	function check(user){
+		if(user.value.length>4){
+			alert("입력가능한 최대 글자수는 4자 입니다.");
+			user.value="";
+		}
+	}
+	function check2(sel){
+		alert("당신이 선택한 메뉴는 "+sel.value);
+	}
+</script>
+</head>
+<body>
+<form>
+<!-- 
+	select, text, textarea 등에서 객체의 내용을 변경한 후 포커스를 잃을 때 호출된다.
+ -->
+ 
+ <input type="text" id="mem_name" name="mem_name" onchange="check(this)" size="20">
+ 	<select id="menu" name="menu" onchange="check2(this)">
+ 		<option value="김밥">김밥</option>
+ 		<option value="떡볶이">떡볶이</option>
+ 		<option value="돈까스">돈까스</option>
+ 		<option value="냉면">냉면</option>
+ 		<option value="된장찌개">된장찌개</option>
+ 	</select>
+</form>
+</body>
+</html>

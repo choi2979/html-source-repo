@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+</head>
+<body>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('h1').css({
+				background:'orange',
+				color: 'blue'
+			});
+			$('.c').css({
+				background:'cyan'
+			});
+			$('h1.c').css({
+				background:'magenta'
+			});
+			$('#d').css({
+				background:'pink', color: 'purple'
+			});
+		});
+	</script>
+	<h1 class= "c">item - 0</h1>
+	<h1 id="d">item - 1</h1>
+	<h1>item - 2</h1>
+	<h1>item - 3</h1>
+	<h1>item - 4</h1>
+</body>
+</html>
