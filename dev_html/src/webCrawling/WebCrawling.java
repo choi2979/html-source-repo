@@ -12,7 +12,7 @@ public class WebCrawling {
 			//크롤링할 URL입력받기
 			URL url = new URL("http://localhost:8000/day4/deptList2.jsp");
 			InputStreamReader isr = new InputStreamReader(url.openStream());
-			BufferedReader br = new BufferedReader(isr);
+			BufferedReader br = new BufferedReader(isr);//효율이 좋아짐
 			String tags = null;
 			StringBuilder sb = new StringBuilder();
 			while((tags = br.readLine())!=null) {
@@ -21,7 +21,7 @@ public class WebCrawling {
 			br.close();
 			//크롤링 시작 - 키(타이틀)
 			List<String> titleList = new ArrayList<String>();
-			String strs[] = sb.toString().split("<th>");
+			String strs[] = sb.toString().split("<th>");//split-문자열을 분할
 			for(int i=0;i<strs.length;i++) {
 				System.out.println("strs["+i+"]==>"+strs[i]);
 			}

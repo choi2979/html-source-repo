@@ -4,7 +4,7 @@
 <%@ page import="java.util.*, com.google.gson.Gson" %>
 <%
 	RestaurantDao rDao = new RestaurantDao();
-	List<Map<String,Object>> mrList = rDao.mapRestList();
+	List<Map<String,Object>> mrList = rDao.procRestList();
 	Gson g = new Gson();
 	String imsi = g.toJson(mrList);
 	out.print(imsi);

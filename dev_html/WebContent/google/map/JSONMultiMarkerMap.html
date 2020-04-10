@@ -9,39 +9,45 @@
 <body>
 	<div id="d_map" style="width:800px; height:600px;"></div>
 	<script type="text/javascript">
-		var map = new google.maps.Map(document.getElementById('d_map'),{
+		var map = new google.maps.Map(document.getElementById('d_map'),{//맵 객체를 인스턴스화
 			zoom: 14
-			,center: new google.maps.LatLng(37.478513, 126.877800)
-			,mapTypeId: google.maps.MapTypeId.ROADMAP
+			,center: new google.maps.LatLng(37.478513, 126.877800)//전체 지도의 중심을 잡아준다.
+			,mapTypeId: google.maps.MapTypeId.ROADMAP//디폴트이지만 써야 위성지도가 된다.
 		});
-		var infowindow = new google.maps.InfoWindow();
-		var marker;
-		var i;//marker생성시 부여한 인덱스 값
-		$.ajax({
+		//InfoWindow 클래스는 지도 위에 올리는 정보 창
+		var infowindow = new google.maps.InfoWindow();//말풍선을 클릭했을 때 열리는 창
+		var marker;//5개가 출력(json으로 스캔-jsonMapList.jsp)
+		var i;//marker생성시 부여한 인덱스 값 0~4
+		$.ajax({//ajax-비동기 통신 객체를 지원
+		
 			url: 'jsonMapList.jsp'
 			,dataType: 'json'
 			,success:function(data){
 				//$("#d_map").text(data);
-				var result = JSON.stringify(data);
+				var result = JSON.stringify(data);//데이터안에 있는 걸 Stringigy로 꺼내달라, 직관적인 정보로 변환
 				//$("#d_map").text(result);
-				var jsonDoc = JSON.parse(result);
+				var jsonDoc = JSON.parse(result);//배열로 전환-다시 객체화처리됨.(배열)
 				for(var i=0;i<jsonDoc.length;i++){
-					//alert(jsonDoc[i].res_name);
+					//alert(jsonDoc[i].res_name);//배열.속성이름으로 꺼낸다.
 					marker = new google.maps.Marker({
-						id: i
+						id: i//0,1,2,3,4 - 마커의 인덱스 정보
+						//포지션값도 배열로 변경됨.
 						,position: new google.maps.LatLng(jsonDoc[i].lat,jsonDoc[i].lng)
-						,map: map
-						,title: jsonDoc[i].res_name
+						,map: map//지도는 하나
+						,title: jsonDoc[i].res_name// 마커가 5개이므로 식당이름 5개 분류
 					});
+					//마커 5개가 for문 안에서 객체 생성되니까 이벤트로 안에서 건다.
 					google.maps.event.addListener(marker, 'click',(function(marker,i){
-						return function(){
+						//addListener 함수의 리턴값이 변수가 아닌 함수임.
+						return function(){//함수의 결과는 윈도우창을 열어줌.(click된 마커마다 다르게)
 							infowindow.setContent('<b>'+jsonDoc[i].res_name+'</b>');
 							infowindow.open(map,marker);
-						}
-					})(marker,i));
-					if(marker){
+						}//end of 반환함수
+						//마커를 생성했을때 click이벤트 처리하기
+					})(marker,i));//자바스크립트
+					if(marker){//자바스크립트에서는 0이 아니면 모두 true
 						marker.addListener('click',function(){
-							map.setZoom(15);
+							map.setZoom(16);//상세보기 처리(14->15)
 							map.setCenter(this.getPosition());
 						});
 					}
