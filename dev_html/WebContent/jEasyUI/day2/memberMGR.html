@@ -18,7 +18,7 @@
     	function searchList(){
     		alert("조회 버튼 클릭 성공");
 			$("#dg_member").datagrid({
-				url: "../../json/dept.json"
+				url: "jsonMemberList.jsp"
 				,onLoadSuccess:function(data){
 					//alert("dg_member loading success!!!");
 					alert("data:"+data);
@@ -106,8 +106,10 @@
 		   ,title: "회원관리 - Ver1.0"
 		   ,width: 700, height: 500
 		   ,columns:[[
-		        {field:'loc',title:'지역',width:100},
-		        {field:'dname',title:'부서명',width:100}
+		        {field:'mem_no',title:'번호',width:100}
+		        ,{field:'mem_id',title:'아이디',width:120}
+		        ,{field:'mem_name',title:'이름',width:150}
+		        ,{field:'mem_email',title:'이메일',width:200}
 		    ]]
 			//datagrid에 출력될 값(상수값-고정값)
 		   /* data: [
@@ -116,7 +118,7 @@
 			] */
 			//이벤트 처리에 부에서 undefine 발생한 경우 전체 화면이 깨지진 않음.
 		   ,onDblClickRow: function(index, row){
-				alert("index:"+index+", row:"+row+", row.f1:"+row.f1+", row.f2:"+row.f2);   
+				alert("index:"+index+", row:"+row+", row.mem_no:"+row.mem_no+", row.mem_id:"+row.mem_id);   
 		   }
 			,onLoadSuccess: function(data){
 				alert(data);
