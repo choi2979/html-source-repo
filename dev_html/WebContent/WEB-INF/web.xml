@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns= "http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+<!-- 
+init-param의 경우에는 서블릿 내부에 선언되는 것처럼 그 서블릿에 제한적으로 사용가능함.
+서블릿이 호출될 때 마다 새로 읽어서 처리됨.
+context-param태그처럼 지속적으로 서버가 꺼질 때까지 유지되는 것은 아니다.
+즉 서블릿이 소멸될때 같이 삭제됨.
+ -->
+ <!-- 최초 서버 기동시 한번 읽어서 그 정보를 계속 유지함. -->
+<context-param>
+<param-name>log4jConfigLocation</param-name>
+<param-value>/WEB-INF/classes/log4j.properties</param-value>
+</context-param>
+<servlet>
+<servlet-name>now</servlet-name>
+<servlet-class>example.NowServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+<servlet-name>now</servlet-name>
+<url-pattern>/now</url-pattern>
+</servlet-mapping>
+</web-app>
