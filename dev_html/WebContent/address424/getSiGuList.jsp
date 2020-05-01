@@ -5,12 +5,12 @@
 <%@ page import="com.google.gson.Gson" %>
 <%
 	//DB연동 처리
-	String zdo = request.getParameter("i_zdo");
+	String zdo = request.getParameter("zdo");
 	SqlMapCommonDao cDao = new SqlMapCommonDao();
 	Map<String,Object> pmap = new HashMap<>();
-	pmap.put("i_zdo",zdo);
+	pmap.put("zdo",zdo);
 	List<Map<String,Object>> siguList = null;
-	siguList = cDao.getSiguList(pmap);
+	siguList = cDao.getSiGuList(pmap);
  
 %>
 	<select id="i_sigu" style="width:120px">

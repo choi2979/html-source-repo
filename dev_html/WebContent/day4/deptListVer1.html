@@ -23,11 +23,11 @@ jeasyui API활용능력 키우기
 	$("#dg_dept").datagrid({
 		title:'부서관리',
 		width: 480,
-		url:'./jsonDeptVOList.jsp',
+		url:'../jEasyUI/day5/jsonDeptList.jsp',
 		columns:[[
-	        {field:'deptno', 	title:'부서번호',	width:120, align:'center'},
-	        {field:'dname', 	title:'부서명',	width:150, align:'center'},
-	        {field:'loc', 		title:'지역',	width:200, align:'center'}
+	        {field:'DEPTNO', 	title:'부서번호',	width:120, align:'center'},
+	        {field:'DNAME', 	title:'부서명',	width:150, align:'center'},
+	        {field:'LOC', 		title:'지역',	width:200, align:'center'}
 	    ]],
 	    onDblClickRow: function(index,row){
 			alert(row.dname+", "+row.loc+", index:"+ index);

@@ -44,7 +44,7 @@
 				var param ="zdo="+p_zdo;
 				$.ajax({
 					method:"post"
-					,url:"getSiGuList.jsp"
+					,url:"getSiGuList.jsp?"+param
 					,success:function(result){
 						$("#d_sigu").html(result);
 						siguIN();

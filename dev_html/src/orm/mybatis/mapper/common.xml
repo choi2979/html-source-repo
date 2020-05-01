@@ -3,6 +3,15 @@
  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="orm.mybatis.mapper.commonMapper">
+	<select id="getZipcode" parameterType="map" resultType="map">
+	<!-- 이 곳에 올 select문은 직접 작성해 보세요. -->
+		SELECT zipcode, address FROM zipcode_t
+		<where>
+			<if test="dong != null">
+				AND dong LIKE #{dong}||'%'
+			</if>
+		</where>
+	</select>
 	<select id="getZDOList" parameterType="map" resultType="map">
 	<!-- 이 곳에 올 select문은 직접 작성해 보세요. -->
 		SELECT distinct(zdo) zdo FROM ZIPCODE_T
@@ -12,10 +21,10 @@
 		SELECT distinct(sigu) sigu 
     		FROM zipcode_t
     		<where>
-    			<if test='zdo != null'>
+    			<if test="zdo != null">
     				AND zdo = #{zdo}
     			</if>
-    			<if test='sigu != null'>
+    			<if test="sigu != null">
     				AND sigu LIKE #{sigu}||'%'
     			</if>
     		</where>
