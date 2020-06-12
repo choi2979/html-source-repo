@@ -119,6 +119,7 @@ public class SqlMapEmpDao {
 		Map<String,Object> pMap = new HashMap<>();
 		pMap.put("empno", 9010);
 		int result = eDao.empUPD(pMap);
+		//int result = eDao.empINS(pMap);
 		System.out.println("result: "+result);
 	}
 }

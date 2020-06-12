@@ -18,25 +18,25 @@ js이용해서 태그를 접근하거나 조작할 수 있다.
 jeasyui는 어떻게 태그를 접근하고 이벤트 처리하는지 관찰하기.
 jeasyui API활용능력 키우기
  -->
-	<table id="dg_dept" class="easyui-datagrid"></table>
-<script type="text/javascript">
-	$("#dg_dept").datagrid({
-		title:'부서관리',
-		width: 480,
-		url:'../jEasyUI/day5/jsonDeptList.jsp',
-		columns:[[
-	        {field:'DEPTNO', 	title:'부서번호',	width:120, align:'center'},
-	        {field:'DNAME', 	title:'부서명',	width:150, align:'center'},
-	        {field:'LOC', 		title:'지역',	width:200, align:'center'}
-	    ]],
-	    onDblClickRow: function(index,row){
-			alert(row.dname+", "+row.loc+", index:"+ index);
-			//페이지 이동처리할때 - get방식이다.
-			//loction도 내장객체이다.
-			location.href="FetchTest.html";
-		}
-		
-	});
-</script>
+<table id="dg_dept" class="easyui-datagrid"></table>
+	<script type="text/javascript">
+		$("#dg_dept").datagrid({
+			title:'부서관리',
+			width: 480,
+			url:'../jEasyUI/day5/jsonDeptList.jsp',
+			columns:[[
+		        {field:'DEPTNO', 	title:'부서번호',	width:120, align:'center'},
+		        {field:'DNAME', 	title:'부서명',	width:150, align:'center'},
+		        {field:'LOC', 		title:'지역',	width:200, align:'center'}
+		    ]],
+		    onDblClickRow: function(index,row){
+				alert(row.dname+", "+row.loc+", index:"+ index);
+				//페이지 이동처리할때 - get방식이다.
+				//loction도 내장객체이다.
+				location.href="FetchTest.html";
+			}
+			
+		});
+	</script>
 </body>
 </html>

@@ -25,5 +25,6 @@
  <mapper resource="orm/mybatis/mapper/emp.xml"/>
  <mapper resource="orm/mybatis/mapper/dept.xml"/>
  <mapper resource="orm/mybatis/mapper/book.xml"/>
+ <mapper resource="orm/mybatis/mapper/member.xml"/>
  </mappers>
 </configuration>
